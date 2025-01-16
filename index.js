@@ -208,6 +208,6 @@ app.post('/sync', async (req, res) => {
 
 // Start the Server
 const PORT = 6000;
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(process.env.PORT|| PORT, '0.0.0.0', () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
