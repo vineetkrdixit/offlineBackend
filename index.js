@@ -32,7 +32,7 @@ const User = mongoose.model('userdata', UserSchema);
 
 // Create/Update (Sync-compatible)
 app.post('/userdata', async (req, res) => {
-    const { id, username, age, deleted } = req.body;
+    const { id, username, age, deleted,_id } = req.body;
 
     try {
         if (id) {
@@ -45,7 +45,7 @@ app.post('/userdata', async (req, res) => {
             return res.status(200).json(updatedUser);
         } else {
             // Create new record
-            const newUser = new User({ username, age });
+            const newUser = new User({ username, age,_id });
             await newUser.save();
             return res.status(201).json(newUser);
         }
